@@ -1,0 +1,60 @@
+<aside class="sidebar">
+  <div class="logo">
+    <img src="logo-white.png" alt="" srcset="">
+  </div>
+  <nav class="menu">
+      <ul>
+          <li [routerLink]="['/dashboard']" routerLinkActive="active">
+              <img src="icons/home-04.svg" alt="home Icon" />
+              Dashboard
+          </li>
+          <li [routerLink]="['membros/membro']" routerLinkActive="active">
+            <img src="icons/users-01.svg" alt="home Icon" />
+            Membros
+        </li>
+          <li class="text-separator">
+              CONTEÚDO
+          </li>
+          <li [routerLink]="['']" routerLinkActive="active">
+              <img src="icons/calendar.svg" alt="building Icon" />
+              Agenda
+          </li>
+          <li [routerLink]="['']" routerLinkActive="active">
+              <img src="icons/globe.svg" alt="graduation Icon" />
+              Banner
+          </li>
+          <li [routerLink]="['']" routerLinkActive="active">
+              <img src="icons/file-05.svg" alt="certificate Icon" />
+              Destaque
+          </li>
+          <li [routerLink]="['']" routerLinkActive="active">
+              <img src="icons/camera-01.svg" alt="building Icon" />
+              Multimédia
+          </li>
+
+          <li class="text-separator">
+              ACADEMIA
+          </li>
+          <li [routerLink]="['academia/alunos']" routerLinkActive="active">
+              <img src="icons/graduation-grey.svg" alt="building Icon" />
+              Alunos
+          </li>
+          <li [routerLink]="['academia/conteudos']" routerLinkActive="active">
+              <img src="icons/award-01.svg" alt="building Icon" />
+              Conteúdo
+          </li>
+          <li [routerLink]="['academia/professores']" routerLinkActive="active">
+            <img src="icons/certificate-01.svg" alt="building Icon" />
+            Professores
+          </li>
+          <li [routerLink]="['academia/turmas']" routerLinkActive="active">
+            <img src="icons/building-03.svg" alt="building Icon" />
+            Turmas
+          </li>
+          <li routerLink="configuracoes" routerLinkActive="active">
+              <img src="icons/settings-01.svg" alt="settings Icon" />
+              Configurações
+          </li>
+      </ul>
+  </nav>
+</aside>
