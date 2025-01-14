@@ -1,32 +1,25 @@
-import { Routes } from '@angular/router';
-import { DashboardComponent } from './features-modules/component/dashboard/dashboard.component';
 import { MembroComponent } from './features-modules/component/membros/membro/membro.component';
-import { AlunosComponent } from './features-modules/component/academia/alunos/alunos.component';
-import { TurmasComponent } from './features-modules/component/academia/turmas/turmas.component';
+import { Component } from '@angular/core';
+import { DashboardComponent } from './features-modules/component/dashboard/dashboard.component';
+import { Routes } from '@angular/router';
+import { LayoutComponent } from './features-modules/component/layout/layout.component';
+
+
 
 export const routes: Routes = [
+
   {
-    path: "",
-    component: DashboardComponent,
+    path: '',
+    component: LayoutComponent,
     children: [
       {
-        path: "Membros",
-        component: MembroComponent,
+        path: 'dashboard',
+        component: DashboardComponent
       },
       {
-      path: "Academia",
-      children: [
-        {
-          path: "Alunos",
-          component: AlunosComponent
-        },
-        {
-          path: "Turamas",
-          component: TurmasComponent
-        },
-      ]
-
-    }
+        path: 'Membros',
+        component: MembroComponent
+      }
     ]
   }
 
