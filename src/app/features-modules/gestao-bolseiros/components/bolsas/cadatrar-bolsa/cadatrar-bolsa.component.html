@@ -1,0 +1,84 @@
+<div class="custom-modal-layout">
+    <div class="modal-header">
+        <div class="icon">
+            <img src="icons/plus-circle.svg" alt="Email Icon" />
+        </div>
+        <span class="title">Adicionar bolsa</span>
+        <p-button icon="pi pi-times" class="close-btn" [rounded]="true" [text]="true" (onClick)="cancel()" />
+    </div>
+    <form [formGroup]="institutionForm" (ngSubmit)="save()">
+
+        <div class="p-fluid grid">
+            <!-- Title -->
+            <div class="col-12">
+                <label for="title">Título da bolsa</label>
+                <input pInputText id="title" type="text" formControlName="title" class="w-full" />
+            </div>
+
+            <!-- Row 1 -->
+            <div class="field col-6">
+                <label for="type">Tipo de bolsa</label>
+                <p-select id="type" formControlName="type" [options]="['Parcial', 'Integral']" placeholder="Selecione"
+                    class="w-full"></p-select>
+            </div>
+
+            <div class="field col-6">
+                <label for="financialCoverage">Cobertura financeira</label>
+                <p-select id="financialCoverage" formControlName="financialCoverage"
+                    [options]="['Parcial', 'Integral']" placeholder="Parcial" class="w-full"></p-select>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="field col-6">
+                <label for="coveragePercentage">Percentagem de cobertura</label>
+                <input pInputText id="coveragePercentage" type="number" formControlName="coveragePercentage"
+                    class="w-full" />
+            </div>
+
+            <div class="field col-6">
+                <label for="academicLevel">Grau acadêmico</label>
+                <p-select id="academicLevel" formControlName="academicLevel"
+                    [options]="['Graduação', 'Mestrado', 'Doutorado']" placeholder="Selecione"
+                    class="w-full"></p-select>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="field col-6">
+                <label for="destination">Destino</label>
+                <p-select id="destination" formControlName="destination" [options]="['Nacional', 'Internacional']"
+                    placeholder="Selecione" class="w-full"></p-select>
+            </div>
+
+            <div class="field col-6">
+                <label for="fundingEntity">Entidades financiadora</label>
+                <p-select id="fundingEntity" formControlName="fundingEntity" [options]="['Catoca', 'Outro']"
+                    placeholder="Selecione" class="w-full"></p-select>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="field col-6">
+                <label for="vacancies">Nº de vagas</label>
+                <input pInputText id="vacancies" type="number" formControlName="vacancies" class="w-full" />
+            </div>
+
+            <div class="field col-3">
+                <label for="startDate">Data de início</label>
+                <input pInputText id="startDate" type="date" formControlName="startDate" class="w-full" />
+            </div>
+
+            <div class="field col-3">
+                <label for="endDate">Data de Término</label>
+                <input pInputText id="endDate" type="date" formControlName="endDate" [min]="institutionForm.value.startDate" class="w-full" />
+            </div>
+        </div>
+
+        <div *ngIf="institutionForm.hasError('dateRange')" class="error-message">
+          Data de término não pode ser anterior à data de início
+        </div>
+
+        <div class="modal-footer">
+            <button pButton type="button" label="Cancelar" class="p-button-outlined" (click)="cancel()"></button>
+            <button pButton type="submit" label="Guardar" class="p-button-primary" [disabled]="!institutionForm.valid"></button>
+        </div>
+    </form>
+</div>

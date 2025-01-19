@@ -1,0 +1,28 @@
+.back-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    .navigate {
+        flex: 0 0 auto;
+        width: 24px;
+        height: 24px;
+        background-color: #EBEBEF;
+        margin-right: 16px;
+
+        img {
+            width: 16px;
+            height: 16px;
+            filter: brightness(0.5);
+            margin: 4px;
+        }
+    }
+
+    span {
+        color: #94949B;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 150%;
+    }
+}

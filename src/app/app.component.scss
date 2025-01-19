@@ -1,0 +1,34 @@
+main {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Prevent overflow issues */
+  }
+  
+  app-side-bar {
+    /* height: 100vh; 
+    background-color: #f8f9fc; 
+    border-right: 1px solid #ddd; 
+    overflow-y: auto; */
+  }
+  
+  app-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+  }
+  
+  .content {
+    flex: 1;
+    margin-top: 60px; /* Adjust for the top bar height */
+    height: calc(100vh - 60px); /* Subtract the height of the top bar */
+    overflow-y: auto; /* Enable scrolling for the content area */
+    padding: 20px;
+    background-color: #f8f9fc;
+  }
+  

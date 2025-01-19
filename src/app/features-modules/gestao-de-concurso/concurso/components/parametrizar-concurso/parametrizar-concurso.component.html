@@ -1,0 +1,138 @@
+<p-toast />
+<app-back-button></app-back-button>
+
+<div class="bg-white mt-4 p-4">
+    <div class="header d-flex flex-row gap-4 border-bottom pb-4 mb-4 align-center">
+        <div class="icon">
+            <img src="icons/file-05.svg" alt="Country Icon" />
+        </div>
+        <h3>Parametrização do concurso</h3>
+    </div>
+    <div class="detalhes row">
+        <div class="col-md-12">
+            <div class="detail-text-item">
+                <span class="label">Concurso</span>
+                <span class="value">{{concurso?.nome}}</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="detail-text-item">
+                <span class="label">Data de abertura</span>
+                <span class="value">{{concurso?.dataInicio}}</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="detail-text-item">
+                <span class="label">Data de Encerramento</span>
+                <span class="value">{{concurso?.dataFim}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="area-title-separator">
+        <span class="title">Informação da categoria/especialidade</span>
+    </div>
+    <div class="row">
+        <div class="field col-12 col-md-6">
+            <label for="nome">Categoria/especialidade</label>
+            <p-select id="province" class="w-full" [(ngModel)]="idCategoriaSelecionada"
+                [options]="concurso?.concursoCategorias || []" optionValue="id" (onChange)="getFasesCategoria()"
+                optionLabel="nome" placeholder="Seleccione a categoria" />
+        </div>
+        <div class="field col-12 col-md-6">
+            <div class="d-flex align-items-end gap-3 h-100">
+                <p-button (onClick)="showDialogAddFase()" styleClass="primary-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Adicionar fase
+                </p-button>
+                <p-button severity="secondary" label="Usar modelo"></p-button>
+            </div>
+        </div>
+    </div>
+    <p-table [value]="categoriaFases" class="mt-4" [tableStyle]="{ 'width': '100%' }" stripedRows>
+        <ng-template #header>
+            <tr>
+                <th>Fase</th>
+                <th>Ordem</th>
+                <th>Data de abertura</th>
+                <th>Data de término</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-fase let-i="rowIndex">
+            <tr>
+                <td>{{ fase.fase.designacao }}</td>
+                <td>{{ fase.ordem }}</td>
+                <td>{{ fase.dataInicio }}</td>
+                <td>{{ fase.dataFim }}</td>
+                <td>
+                    <div class="d-flex gap-2">
+                        <p-button (onClick)="showDialogAddFase(fase)" icon="pi pi-pencil" severity="secondary" aria-label="Save" />
+                        <p-button icon="pi pi-trash" severity="secondary" aria-label="Delete" />
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    @if (categoriaFases.length === 0) {
+    <div class="empty-data">
+        <img class="icon" src="icons/empty.svg" alt="">
+        <span class="info">Sem fases</span>
+        <span class="tip">Adicione fases para parametrizar a categoria</span>
+    </div>
+    }
+
+</div>
+
+<!-- <div class="bg-white mt-4 p-4">
+    <p-tabs value="0">
+        <p-tablist>
+            <p-tab value="0">
+                Vagas
+            </p-tab>
+            <p-tab value="1">
+                Critérios
+            </p-tab>
+        </p-tablist>
+        <p-tabpanels>
+            <p-tabpanel value="0">
+                <form [formGroup]="addCategoriaForm" (ngSubmit)="addCategoria()">
+
+                    <div class="p-fluid grid">
+                        <div class="field col-12 col-md-3">
+                            <label for="nome">Categoria/especialidade</label>
+                            <input id="nome" type="text" class="w-full" pInputText formControlName="nome"
+                                placeholder="Insira o nome da categoria" />
+                        </div>
+
+                        <div class="field col-12 col-md-3">
+                            <label for="acronym">Vagas</label>
+                            <input id="nome" type="text" class="w-full" pInputText formControlName="numVaga"
+                                placeholder="Total de vagas" />
+                        </div>
+
+                        <div class="field col-12 col-md-6">
+                            <label for="acronym">Descrição</label>
+                            <input id="nome" type="text" class="w-full" pInputText formControlName="descricao"
+                                placeholder="Insira a descrição do concurso" />
+                        </div>
+
+                    </div>
+                    <div class="d-flex">
+                        <button pButton type="submit" label="Adicionar" class="p-button-primary ms-auto"></button>
+                    </div>
+                </form>
+            </p-tabpanel>
+            <p-tabpanel value="1">
+                <p class="m-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                    totam
+                </p>
+            </p-tabpanel>
+        </p-tabpanels>
+    </p-tabs>
+</div> -->

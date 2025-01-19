@@ -1,0 +1,47 @@
+<div class="custom-modal-layout">
+    <div class="modal-header">
+        <div class="icon">
+            <img src="icons/plus-circle.svg" alt="Email Icon" />
+        </div>
+        <span class="title">Adicionar Curso</span>
+        <p-button icon="pi pi-times" class="close-btn" [rounded]="true" [text]="true" (onClick)="cancel()" />
+    </div>
+    <form [formGroup]="institutionForm" (ngSubmit)="save()">
+        <div class="p-fluid grid">
+            <div class="field col-12">
+                <label for="name">Nome do curso</label>
+                <input id="name" type="text" class="w-full" pInputText formControlName="name"
+                    placeholder="Nome do curso" />
+            </div>
+
+            <div class="field col-6">
+                <label for="acronym">Sigla</label>
+                <input id="acronym" type="text" class="w-full" pInputText formControlName="acronym"
+                    placeholder="Sigla" />
+            </div>
+
+            <div class="field col-6">
+                <label for="acronym">Duração</label>
+                <input id="acronym" type="text" class="w-full" pInputText formControlName="acronym"
+                    placeholder="Duração" />
+            </div>
+
+            <div class="field col-6">
+                <label for="acronym">Nº de cadeiras</label>
+                <input id="acronym" type="text" class="w-full" pInputText formControlName="acronym"
+                    placeholder="Nº de cadeiras" />
+            </div>
+
+            <div class="field col-6">
+                <label for="country">Grau acadêmico</label>
+                <p-select id="country" class="w-full" [options]="['Angola', 'Brasil', 'Portugal']"
+                    placeholder="Selecione o grau acadêmico" formControlName="country" />
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button pButton type="button" label="Cancelar" class="p-button-outlined" (click)="cancel()"></button>
+            <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+        </div>
+    </form>
+</div>

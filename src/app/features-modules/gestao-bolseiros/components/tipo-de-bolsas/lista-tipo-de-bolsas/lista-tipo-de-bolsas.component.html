@@ -1,0 +1,25 @@
+<div class="tipo-bolsa-container">
+  <app-search-bar [filters]="[
+  { type: 'text', controlName: 'searchText', placeholder: 'Pesquise por tipo de bolsa' },
+  ]" primaryBtnLabel="Adicionar Tipo de Bolsa" [primaryBtnLabel]="'Adicionar Tipo de Bolsa'"
+    (onPrimaryBtnClick)="showDialog()" (formValueChange)="onFormValueChange($event)"></app-search-bar>
+  <p-table [value]="tipoBolsas" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor Mensal</th>
+        <th>Duração (meses)</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-tipoBolsa>
+      <tr>
+        <td>{{ tipoBolsa.nome || '-' }}</td>
+        <td>{{ tipoBolsa.descricao || '-' }}</td>
+        <td>{{ tipoBolsa.valorMensal }}</td>
+        <td>{{ tipoBolsa.duracaoMeses }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-toast></p-toast>
+</div>

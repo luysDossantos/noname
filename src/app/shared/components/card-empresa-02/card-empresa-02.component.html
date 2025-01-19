@@ -1,0 +1,43 @@
+<div class="card">
+    <!-- Header -->
+    <div class="header">
+        <div class="icon">
+            <!-- <img src="images/sonangol.png" alt="icon" /> -->
+        </div>
+        <div class="title">
+            <h2>Sogest-oil, industries</h2>
+            <div class="info">
+                <span><strong>Petróleo & Gás</strong></span>
+                <span>•</span>
+                <span><span class="status">{{ status }}</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="indicators">
+        <div class="avatars">
+            <img *ngFor="let person of participants" [src]="person.photo" alt="participant" />
+            <div class="counter">
+                <span>+{{ extraParticipants }}</span>
+            </div>
+            <span class="counter-desc">Bolseiros vinculados</span>
+        </div>
+    </div>
+
+    <div class="contact-info">
+        <div class="email">
+            <div class="icon">
+                <img src="icons/map-pin.svg" alt="Email Icon" />
+            </div>
+            <span>Angola, Luanda, Av. Rainha Ginga, AB Luanda</span>
+        </div>
+        <div class="email">
+            <div class="icon">
+                <img src="icons/globe-01.svg" alt="Email Icon" />
+            </div>
+            <span>www.Sogesto-oil.com</span>
+        </div>
+    </div>
+
+</div>
+

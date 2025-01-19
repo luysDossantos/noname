@@ -1,0 +1,178 @@
+<p-toast />
+<app-back-button></app-back-button>
+
+<div class="bg-white mt-4 p-4">
+    <div class="header d-flex flex-row gap-4 border-bottom pb-4 mb-4 align-center">
+        <div class="icon">
+            <img src="icons/file-05.svg" alt="Country Icon" />
+        </div>
+        <h3>Concurso</h3>
+    </div>
+    <form [formGroup]="addConcursoForm" (ngSubmit)="save()">
+
+        <p-stepper [(value)]="activeStep" class="basis-[50rem]">
+            <p-step-list>
+                <p-step [value]="1">
+                    <ng-template #content let-activateCallback="activateCallback" let-value="value">
+                        <a class="step-indicator" [class.active]="value==activeStep" (click)="activateCallback(1)">
+                            <div class="number">1</div>
+                            <div class="label">
+                                Dados do Concurso
+                            </div>
+                        </a>
+                    </ng-template>
+                </p-step>
+                <p-step [value]="2">
+                    <ng-template #content let-activateCallback="activateCallback" let-value="value">
+                        <a class="step-indicator" [class.active]="value==activeStep" (click)="activateCallback(2)">
+                            <div class="number">2</div>
+                            <div class="label">
+                                Categorias
+                            </div>
+                        </a>
+                    </ng-template>
+                </p-step>
+            </p-step-list>
+            <p-step-panels>
+                <p-step-panel [value]="1">
+                    <ng-template #content let-activateCallback="activateCallback">
+                        <div class="p-fluid grid">
+                            <div class="field col-12">
+                                <label for="nome">Concurso</label>
+                                <input id="nome" type="text" class="w-full" pInputText formControlName="nome"
+                                    placeholder="Insira o nome do concurso" />
+                            </div>
+
+                            <div class="field col-6">
+                                <label for="acronym">Entidade</label>
+                                <p-select id="province" class="w-full" formControlName="entidadeId"
+                                    [options]="entidades" optionValue="id" optionLabel="nome"
+                                    placeholder="Selecione a entidade" />
+                            </div>
+
+                            <div class="field col-6">
+                                <label for="acronym">Tipo de concurso</label>
+                                <p-select id="province" class="w-full" [options]="['Bolsa']"
+                                    placeholder="Selecione o tipo de concurso" />
+                            </div>
+
+                            <div class="field col-6">
+                                <label for="acronym">Tipo de visibilidade</label>
+                                <p-select id="province" class="w-full" [options]="['Externo']"
+                                    placeholder="Selecione o tipo de visibilidade" />
+                            </div>
+
+                            <div class="field col-6">
+                                <label for="academicLevel">Permite multipla candidatura?</label>
+                                <div class="flex flex-wrap gap-4">
+                                    <div class="flex items-center">
+                                        <p-radiobutton [value]="true" formControlName="isMultiplas"
+                                            inputId="isMultiplas1" />
+                                        <label for="isMultiplas1" class="ml-2">Sim</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <p-radiobutton [value]="false" formControlName="isMultiplas"
+                                            inputId="isMultiplas2" />
+                                        <label for="isMultiplas2" class="ml-2">Não</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field col-6">
+                                <label for="dataInicio" class="w-100">Data de abertura</label>
+                                <p-datepicker id="dataInicio" styleClass="w-full" [showIcon]="true"
+                                    formControlName="dataInicio" />
+                            </div>
+
+                            <div class="field col-6">
+                                <label for="dataFim" class="w-100">Data da término</label>
+                                <p-datepicker id="dataFim" styleClass="w-full" [showIcon]="true"
+                                    formControlName="dataFim" />
+                            </div>
+
+                            <div class="field col-12">
+                                <label for="descricao">Descrição</label>
+                                <textarea id="" pTextarea formControlName="descricao" rows="3"
+                                    class="w-full"></textarea>
+                            </div>
+
+                            <div class="field col-12">
+                                <label for="acronym">Detalhe</label>
+                                <p-editor [style]="{ height: '320px' }" />
+                            </div>
+
+                            <div class="field col-12">
+                                <p-fileupload #fu mode="basic" chooseLabel="Choose" chooseIcon="pi pi-upload"
+                                    name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*"
+                                    maxFileSize="1000000" />
+                            </div>
+
+                        </div>
+                    </ng-template>
+                </p-step-panel>
+                <p-step-panel [value]="2">
+                    <ng-template #content let-activateCallback="activateCallback">
+
+                        <div formGroupName="categoriaForm" class="p-fluid grid">
+                            <div class="field col-12 col-md-6">
+                                <label for="nome">Categoria/especialidade</label>
+                                <input id="nome" type="text" class="w-100" pInputText formControlName="nome"
+                                    placeholder="Insira o nome da categoria" />
+                            </div>
+
+                            <div class="field col-12 col-md-6">
+                                <label for="acronym">Vagas</label>
+                                <input id="nome" type="text" class="w-100" pInputText formControlName="numVaga"
+                                    placeholder="Total de vagas" />
+                            </div>
+
+                            <div class="field col-12 col-md-6">
+                                <label for="acronym">Descrição</label>
+                                <input id="nome" type="text" class="w-full" pInputText formControlName="descricao"
+                                    placeholder="Insira a descrição do concurso" />
+                            </div>
+
+                            <div class="w-100 d-flex gap-3 justify-content-end mt-3">
+                                <button pButton type="button" label="Remover" class="p-button-secondary"></button>
+                                <button pButton (click)="addCategoria()" type="button" label="Adicionar categoria"
+                                    class="p-button-primary"></button>
+                            </div>
+
+                        </div> 
+
+                        <p-table [value]="categoriasControls" class="mt-4" [tableStyle]="{ 'width': '100%' }" stripedRows>
+                            <ng-template #header>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Descrição</th>
+                                    <th>Número de Vagas</th>
+                                    <th></th>
+                                </tr>
+                            </ng-template>
+                            <ng-template #body let-categoria let-i="rowIndex">
+                                <tr>
+                                    <td>{{ categoria.value.nome }}</td>
+                                    <td>{{ categoria.value.descricao }}</td>
+                                    <td>{{ categoria.value.numVaga }}</td>
+                                    <td>
+                                        <p-button icon="pi pi-trash" (click)="removeCategoria(i)" aria-label="Remover" />
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+
+                    </ng-template>
+                </p-step-panel>
+            </p-step-panels>
+        </p-stepper>
+
+        <div class="d-flex justify-content-between mt-4">
+            <button pButton type="button" label="Voltar" class="p-button-secondary" (click)="prevStep()"></button>
+            @if (activeStep != 2) {
+            <button pButton type="button" label="Próximo" class="p-button-primary" (click)="nextStep()"></button>
+            } @else {
+            <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+            }
+        </div>
+    </form>
+</div>

@@ -1,0 +1,128 @@
+.card {
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s;
+    margin-bottom: 2px;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-color: #4864E1;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            padding: 12px;
+            background-image: url('/images/sonangoldc_logo.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .title {
+            h2 {
+                font-size: 1.2em;
+                margin: 0;
+            }
+
+            .info {
+                display: flex;
+                gap: 12px;
+                color: #777;
+                margin: 4px 0 0;
+
+                .status {
+                    color: green;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+
+
+    .indicators {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 24px;
+        margin-left: 8px;
+
+        .avatars {
+            display: flex;
+
+            img,
+            .counter {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                margin-left: -8px;
+            }
+
+            img {
+                border: 2px solid #fff;
+            }
+
+            .counter {
+                background-color: #FAFAFA;
+                padding: 7px;
+                font-size: 14px;
+                color: #555;
+            }
+
+            .counter-desc {
+                align-self: center;
+                margin-left: 12px;
+                color: var(--gray-2, #94949B);
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+        }
+
+    }
+
+    .contact-info {
+        display: flex;
+        gap: 28px;
+        flex-wrap: nowrap;
+        margin-top: 20px;
+
+        div {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                background-color: #EBEBEF;
+                width: 32px;
+                height: 32px;
+                flex-shrink: 0;
+                margin-right: 8px;
+                border-radius: 50%;
+
+                img {
+                    width: 16px;
+                    height: 16px;
+                    margin: 7px;
+                }
+            }
+
+
+            span {
+                font-size: 14px;
+                color: #333;
+            }
+        }
+    }
+
+}

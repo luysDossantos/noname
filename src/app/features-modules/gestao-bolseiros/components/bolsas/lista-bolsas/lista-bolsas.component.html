@@ -1,0 +1,36 @@
+<div class="page-header">
+  <div class="left-area">
+    <span class="title">Bolsas</span>
+    <span class="sub-title">Adicione, visulize e edite todas as bolsas do sistema</span>
+  </div>
+</div>
+
+<app-search-bar
+  [filters]="[
+  { type: 'text', controlName: 'searchText', placeholder: 'Pesquise pela empresa' },
+  { type: 'dropdown', controlName: 'selectedCountry', placeholder: 'Estado', options: paises, optionLabel: 'designacao', optionValue: 'id' },
+  ]"
+  primaryBtnLabel="Adicionar bolsa"
+  [primaryBtnLabel]="'Adicionar bolsa'"
+  (onPrimaryBtnClick)="showDialog()"
+  [showSecondBtn]="true"
+  [secondBtnLabel]="'Adicionar Tipo de bolsa'"
+  (onSecondBtnClick)="onSecondBtnClick()"
+  (formValueChange)="onFormValueChange($event)"
+></app-search-bar>
+
+<div class="list">
+  <ng-container *ngIf="bolseiros.length > 0; else noData">
+    <ng-container *ngFor="let item of bolseiros; let i = index">
+      <app-card-bolsa [routerLink]="['detalhe-bolsa']" [name]="item.name" [avatar]="item.avatar" [age]="item.age"
+        [country]="item.country" [duration]="item.duration" [estado]="item.estado">
+      </app-card-bolsa>
+    </ng-container>
+  </ng-container>
+  <ng-template #noData>
+    <div class="no-data">
+      <p>Nenhuma bolsa disponível no momento.</p>
+    </div>
+  </ng-template>
+</div>
+<p-toast></p-toast>

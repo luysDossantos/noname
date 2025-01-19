@@ -1,0 +1,37 @@
+<div class="custom-modal-layout">
+  <div class="modal-header">
+    <div class="icon">
+      <img src="icons/plus-circle.svg" alt="Email Icon" />
+    </div>
+    <span class="title">Adicionar Tipo de Bolsa</span>
+    <p-button icon="pi pi-times" class="close-btn" [rounded]="true" [text]="true" (onClick)="cancel()"></p-button>
+  </div>
+  <form [formGroup]="tipoBolsaForm" (ngSubmit)="save()">
+    <div class="p-fluid grid">
+      <div class="col-12">
+        <label for="nome">Nome</label>
+        <input pInputText id="nome" formControlName="nome" class="w-full" />
+      </div>
+
+      <div class="col-12">
+        <label for="descricao">Descrição</label>
+        <input pInputText id="descricao" formControlName="descricao" class="w-full" />
+      </div>
+
+      <div class="col-6">
+        <label for="valorMensal">Valor Mensal</label>
+        <input pInputText id="valorMensal" type="number" formControlName="valorMensal" class="w-full" />
+      </div>
+
+      <div class="col-6">
+        <label for="duracaoMeses">Duração (meses)</label>
+        <input pInputText id="duracaoMeses" type="number" formControlName="duracaoMeses" class="w-full" />
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button pButton type="button" label="Cancelar" class="p-button-outlined" (click)="cancel()"></button>
+      <button pButton type="submit" label="Guardar" class="p-button-primary" [disabled]="!tipoBolsaForm.valid"></button>
+    </div>
+  </form>
+</div>

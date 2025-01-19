@@ -1,0 +1,46 @@
+<div class="custom-modal-layout">
+    <div class="modal-header">
+        <div class="icon">
+            <img src="icons/plus-circle.svg" alt="Email Icon" />
+        </div>
+        <span class="title">Adicionar Fase</span>
+        <p-button icon="pi pi-times" class="close-btn" [rounded]="true" [text]="true" (onClick)="cancel()" />
+    </div>
+    <form [formGroup]="institutionForm" (ngSubmit)="save()">
+
+        <div class="p-fluid grid">
+            <div class="field col-12">
+                <label for="name">Categoria</label>
+                <input pInputText [disabled]="true" class="w-full" formControlName="categoriaNome" />
+            </div>
+
+            <div class="field col-12 col-md-8">
+                <label for="name">Fase</label>
+                <p-select class="w-full" formControlName="faseID" [options]="fases" optionLabel="designacao"
+                    optionValue="id" placeholder="Selecione a fase" />
+            </div>
+
+            <div class="field col-12 col-md-4">
+                <label for="acronym">Ordem</label>
+                <input id="acronym" type="text" class="w-full" pInputText formControlName="ordem"
+                    placeholder="Informe a ordem" />
+            </div>
+
+            <div class="field col-6">
+                <label for="dataInicio" class="w-100">Data de abertura</label>
+                <p-datepicker styleClass="w-full" [showIcon]="true" formControlName="dataInicio" appendTo="body" />
+            </div>
+
+            <div class="field col-6">
+                <label for="dataFim" class="w-100">Data da término</label>
+                <p-datepicker styleClass="w-full" [showIcon]="true" formControlName="dataFim" appendTo="body" />
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button pButton type="button" label="Cancelar" class="p-button-outlined" (click)="cancel()"></button>
+            <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+        </div>
+    </form>
+</div>

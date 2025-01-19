@@ -1,0 +1,35 @@
+<div class="page-header">
+  <div class="left-area">
+      <span class="title">Bolseiros</span>
+      <span class="sub-title">Adicione, visualize e edite todos bolseiros do sistema</span>
+  </div>
+  <div class="indicator">
+      <div class="icon">
+          <img src="icons/user-minus-01.svg" alt="Country Icon" />
+      </div>
+      <div class="text-bg">
+          <span>12 Registos pendente</span>
+      </div>
+  </div>
+</div>
+
+<app-search-bar [filters]="filters" primaryBtnLabel="Adicionar bolseiro" (onPrimaryBtnClick)="showDialog()"  (formValueChange)="handleFormValueChange($event)"></app-search-bar>
+
+<div class="list">
+  <ng-container *ngIf="bolseiros.length > 0; else noBolseiros">
+      <app-card-person *ngFor="let item of bolseiros; trackBy: trackByBolseiroId"
+                       [name]="item.name"
+                       [avatar]="item.avatar"
+                       [age]="item.age"
+                       [country]="item.country"
+                       [duration]="item.duration"
+                       [estado]="item.estado">
+      </app-card-person>
+  </ng-container>
+  <ng-template #noBolseiros>
+      <div class="no-data">
+         <p>Nenhum bolseiro disponível no momento.</p>
+      </div>
+  </ng-template>
+</div>
+<p-toast></p-toast>

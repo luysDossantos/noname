@@ -1,0 +1,16 @@
+<div class="page-header">
+    <div class="left-area">
+        <span class="title">Instituições de ensino</span>
+        <span class="sub-title">Adicione, visulize e edite todas as instituições de ensino no sistema.</span>
+    </div>
+</div>
+
+<app-search-bar primaryBtnLabel="Adicionar instituição" (onPrimaryBtnClick)="showDialog()"></app-search-bar>
+
+<div class="list">
+    @for (item of empresas; track $index) {
+    <app-card-empresa [routerLink]="['detalhe-instituicao']" [logo]="'ucan.png'" [name]="'UCAN'"
+        [description]="'Universidade Católica de Angola'" [country]="'Angola'" [phone]="'(+244) 222 010 916'"
+        [email]="'geral@ucan.ao'"></app-card-empresa>
+    }
+</div>

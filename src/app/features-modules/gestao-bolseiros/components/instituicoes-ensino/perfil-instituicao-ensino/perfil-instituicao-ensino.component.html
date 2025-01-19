@@ -1,0 +1,70 @@
+<app-back-button></app-back-button>
+<div class="header">
+    <div class="instituicao-info">
+        <div class="name-area">
+            <div class="left-area">
+                <span class="name">{{ universityName }}</span>
+                <span class="full-name">{{ universityDetails }}</span>
+            </div>
+            <div class="indicator">
+                <div class="book">
+                    <img src="icons/book-closed.svg" alt="Country Icon" />
+                </div>
+                <div class="text-bg">
+                    <span>09 Cursos</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-info">
+            <div class="country">
+                <div class="icon">
+                    <img src="icons/globe.svg" alt="Country Icon" />
+                </div>
+                <span>{{ location }}</span>
+            </div>
+            <div class="phone">
+                <div class="icon">
+                    <img src="icons/phone.svg" alt="Phone Icon" />
+                </div>
+                <span>{{ phone }}</span>
+            </div>
+            <div class="email">
+                <div class="icon">
+                    <img src="icons/email.svg" alt="Email Icon" />
+                </div>
+                <span>{{ email }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="actions">
+    <p-button label="Editar instituição" icon="pi pi-pencil" severity="secondary" />
+    <p-button label="Mais detalhes da instituição" icon="pi pi-info-circle" iconPos="right" [text]="true"
+        severity="secondary" />
+</div>
+<p-tabs value="0">
+    <p-tablist>
+        <p-tab value="0">
+            <div class="tab-icon">
+                <img src="icons/users-01.svg" alt="Email Icon" />
+            </div>
+            Bolseiros
+        </p-tab>
+        <p-tab value="1">
+            <div class="tab-icon">
+                <img src="icons/book-closed.svg" alt="Email Icon" />
+            </div>
+            Cursos
+        </p-tab>
+    </p-tablist>
+    <p-tabpanels>
+        <p-tabpanel value="0">
+            <app-lista-cursos></app-lista-cursos>
+        </p-tabpanel>
+        <p-tabpanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+            </p>
+        </p-tabpanel>
+    </p-tabpanels>
+</p-tabs>

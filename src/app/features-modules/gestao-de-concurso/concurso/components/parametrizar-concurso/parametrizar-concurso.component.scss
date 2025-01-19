@@ -1,0 +1,37 @@
+.detail-text-item {
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: #F9FAFB;
+    padding: 12px 22px;
+
+    .label {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 18px;
+        color: #667085;
+    }
+
+    .value {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        color: #475467;
+    }
+}
+
+.area-title-separator {
+    margin: 32px 0;
+
+    .title {
+        color: var(--gray-500, #667085);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+    }
+
+}

@@ -1,0 +1,29 @@
+<div class="col-12">
+    <p-table [value]="candidaturas" stripedRows  [tableStyle]="{ 'width': '100%' }">
+        <ng-template #header>
+            <tr>
+                <th>Consurso</th>
+                <th>Categoria</th>
+                <th>Estado</th>
+                <th>Data de abertura</th>
+                <th>Data de término</th>
+                <th>Data da Cantidatura</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-candidatura>
+            <tr>
+                <td>{{candidatura.concursoCategoria?.entidadeConcurso?.nome}}</td>
+                <td>{{candidatura.concursoCategoria?.nome}}</td>
+                <td>{{candidatura.estado | estadoCandidaturaDesc}}</td>
+                <td>{{candidatura.concursoCategoria?.entidadeConcurso.dataInicio | date:'dd-MM-yyyy'}}</td>
+                <td>{{candidatura.concursoCategoria?.entidadeConcurso.dataFim | date:'dd-MM-yyyy'}}</td>
+                <td>{{candidatura.dataCandidatura | date:'dd-MM-yyyy HH:mm'}}</td>
+                <td>
+                    <p-button icon="pi pi-eye" severity="secondary">
+                    </p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

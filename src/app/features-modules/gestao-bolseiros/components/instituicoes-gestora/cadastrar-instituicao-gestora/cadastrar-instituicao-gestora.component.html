@@ -1,0 +1,139 @@
+<div class="custom-modal-layout">
+    <div class="modal-header">
+        <div class="icon">
+            <img src="icons/plus-circle.svg" alt="Email Icon" />
+        </div>
+        <span class="title">Adicionar nova empresa</span>
+        <p-button icon="pi pi-times" class="close-btn" [rounded]="true" [text]="true" (onClick)="cancel()" />
+    </div>
+    <form [formGroup]="institutionForm" (ngSubmit)="save()">
+
+        <div class="">
+            <p-stepper [(value)]="activeStep" class="basis-[50rem]">
+                <p-step-list>
+                    <p-step [value]="1">
+                        <ng-template #content let-activateCallback="activateCallback" let-value="value">
+                            <a class="step-indicator" [class.active]="value==activeStep" (click)="activateCallback(1)">
+                                <div class="number">1</div>
+                                <div class="label">
+                                    Descrição da empresa
+                                </div>
+                            </a>
+                        </ng-template>
+                    </p-step>
+                    <p-step [value]="2">
+                        <ng-template #content let-activateCallback="activateCallback" let-value="value">
+                            <a class="step-indicator" [class.active]="value==activeStep" (click)="activateCallback(2)">
+                                <div class="number">2</div>
+                                <div class="label">
+                                    Contacto e localização
+                                </div>
+                            </a>
+                        </ng-template>
+                    </p-step>
+                </p-step-list>
+                <p-step-panels>
+                    <p-step-panel [value]="1">
+                        <ng-template #content let-activateCallback="activateCallback">
+
+                            <div class="file-upload">
+                                <p-fileupload name="myfile[]" url="https://www.primefaces.org/cdn/api/upload.php"
+                                    [multiple]="false" accept="image/*" maxFileSize="1000000000"
+                                    (onSelect)="onSelectedFiles($event)">
+                                    <ng-template #header let-files let-chooseCallback="chooseCallback"
+                                        let-clearCallback="clearCallback" let-uploadCallback="uploadCallback">
+                                    </ng-template>
+                                    <ng-template #content let-files let-uploadedFiles="uploadedFiles"
+                                        let-removeFileCallback="removeFileCallback" let-chooseCallback="chooseCallback"
+                                        let-removeUploadedFileCallback="removeUploadedFileCallback">
+                                        <a class="circular-upload preview" (click)="choose($event, chooseCallback)"
+                                            [ngStyle]="{ 'background-image': imagePreview ? 'url(' + imagePreview + ')' : 'none' }">
+                                            <span *ngIf="!imagePreview">LOGO</span>
+                                            <div class="icon">
+                                                <img src="icons/camera-01.svg" alt="">
+                                            </div>
+                                        </a>
+                                    </ng-template>
+                                    <ng-template #file></ng-template>
+                                    <ng-template #empty></ng-template>
+                                </p-fileupload>
+                            </div>
+                            <div class="p-fluid grid">
+                                <div class="field col-12">
+                                    <label for="name">Nome da empresa</label>
+                                    <input id="name" type="text" class="w-full" pInputText formControlName="name"
+                                        placeholder="Nome da empresa" />
+                                </div>
+
+                                <div class="field col-12">
+                                    <label for="acronym">Descrição da empresa</label>
+                                    <textarea id="" pTextarea formControlName="province" rows="5"
+                                        class="w-full"></textarea>
+                                </div>
+                            </div>
+
+                        </ng-template>
+                    </p-step-panel>
+
+                    <p-step-panel [value]="2">
+                        <ng-template #content let-activateCallback="activateCallback">
+
+                            <div class="p-fluid grid">
+
+                                <div class="field col-6">
+                                    <label for="acronym">Sector</label>
+                                    <p-select id="province" class="w-full" [options]="[]"
+                                        placeholder="Selecione o sector" formControlName="province" />
+                                </div>
+
+                                <div class="field col-6">
+                                    <label for="name">Site da empresa (Opcional)</label>
+                                    <input id="name" type="text" class="w-full" pInputText formControlName="name"
+                                        placeholder="Informe o site da empresa" />
+                                </div>
+                                <div class="field col-6">
+                                    <label for="name">Telefone</label>
+                                    <input id="name" type="text" class="w-full" pInputText formControlName="name"
+                                        placeholder="Contacto familiar" />
+                                </div>
+
+                                <div class="field col-6">
+                                    <label for="name">Email</label>
+                                    <input id="name" type="text" class="w-full" pInputText formControlName="name"
+                                        placeholder="Email" />
+                                </div>
+
+                                <div class="field col-12">
+                                    <label for="name">Endereço</label>
+                                    <input id="name" type="text" class="w-full" pInputText formControlName="name"
+                                        placeholder="Endereço" />
+                                </div>
+
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+
+                    <p-step-panel [value]="3">
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div
+                                    class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">
+                                    Content III
+                                </div>
+                            </div>
+                            <div class="flex pt-6 justify-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" iconPos="right"
+                                    (onClick)="activateCallback(2)" />
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                </p-step-panels>
+            </p-stepper>
+        </div>
+
+        <div class="modal-footer">
+            <button pButton type="button" label="Cancelar" class="p-button-outlined" (click)="cancel()"></button>
+            <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+        </div>
+    </form>
+</div>

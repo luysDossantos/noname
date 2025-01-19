@@ -1,0 +1,31 @@
+<app-search-bar primaryBtnLabel="Adicionar curso" (onPrimaryBtnClick)="showDialog()"></app-search-bar>
+
+<p-table [value]="cursos" [paginator]="true" [rows]="5" [first]="first" [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="{first} à {last} de {totalRecords} registos"
+    (onPage)="pageChange($event)" [rowsPerPageOptions]="[10, 25, 50]" stripedRows>
+    <ng-template #header>
+        <tr>
+            <th>Curso</th>
+            <th>Sigla</th>
+            <th>Duração</th>
+            <th>Nº de cadeiras</th>
+            <th>Grau acadêmico</th>
+            <th>Estado</th>
+            <th>Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-curso>
+        <tr>
+            <td>{{curso.curso}}</td>
+            <td>{{curso.sigla}}</td>
+            <td>{{curso.duracao}}</td>
+            <td>{{curso.num_cadeiras}}</td>
+            <td>{{curso.grauAcademico}}</td>
+            <td>{{curso.estado}}</td>
+            <td>
+                <p-select [options]="[]" optionLabel="name" placeholder="Acções" class="w-full md:w-56"
+                    appendTo="body" />
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

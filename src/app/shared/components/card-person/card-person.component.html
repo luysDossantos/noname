@@ -1,0 +1,38 @@
+<div class="university-card">
+    <!-- Logo -->
+    <div class="logo">
+        <img [src]="avatar()" alt="University Logo" />
+    </div>
+
+    <!-- Name and Description -->
+    <div class="details">
+        <h3 class="name">{{ name() }}</h3>
+        <p class="description">{{ age() }}</p>
+    </div>
+
+    <!-- Contact Details -->
+    <div class="contact-info">
+        <div class="info-item">
+            <div class="icon">
+                <img src="icons/globe.svg" alt="Country Icon" />
+            </div>
+            <span>{{ country() }}</span>
+        </div>
+        <div class="info-item">
+            <div class="icon">
+                1
+            </div>
+            <span>{{ duration() }}</span>
+        </div>
+    </div>
+    <div class="container-estado">
+        <div class="estado estado-vinculado">
+            <span>{{ estado() }}</span>
+        </div>
+    </div>
+
+    <!-- Navigation Icon -->
+    <div class="navigate">
+        <img src="icons/arrow-right.svg" alt="Navigate Icon" />
+    </div>
+</div>

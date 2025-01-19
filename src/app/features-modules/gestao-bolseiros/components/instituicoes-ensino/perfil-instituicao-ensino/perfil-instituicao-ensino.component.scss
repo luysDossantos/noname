@@ -1,0 +1,104 @@
+.header {
+    margin-bottom: 23px;
+
+    .instituicao-info {
+        display: flex;
+        flex-direction: column;
+
+        .name-area {
+            margin: 24px 0;
+            display: flex;
+
+            .left-area {
+                display: flex;
+                flex-direction: column;
+
+                .name {
+                    color: var(--black, #333335);
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 150%;
+                }
+
+                .full-name {
+                    color: var(--gray-1, #5A5A5C);
+                    font-family: Inter;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+
+            .indicator {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+
+                .book {
+                    width: 56px;
+                    height: 56px;
+                    flex-shrink: 0;
+                    background: rgba(72, 100, 225, 0.10);
+                    padding: 12px;
+                    margin-right: 20px;
+                }
+
+                .text-bg {
+                    display: flex;
+                    height: 78px;
+                    background-image: url('/images/bg-perfil-indicator.png');
+                    background-repeat: no-repeat;
+                    background-position: right;
+
+                    span {
+                        color: var(--gray-1, #5A5A5C);
+                        font-size: 24px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 150%;
+                        margin: auto 92px auto 0;
+                    }
+                }
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 16px;
+            flex-wrap: nowrap;
+
+            div {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    background-color: #EBEBEF;
+                    width: 32px;
+                    height: 32px;
+                    flex-shrink: 0;
+                    margin-right: 8px;
+                    border-radius: 50%;
+
+                    img {
+                        width: 16px;
+                        height: 16px;
+                        margin: 7px;
+                    }
+                }
+
+
+                span {
+                    font-size: 14px;
+                    color: #333;
+                }
+            }
+        }
+    }
+}
+.actions {
+    margin: 48px 0;
+    display: flex;
+    gap: 24px;
+}

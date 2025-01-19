@@ -1,0 +1,107 @@
+<app-back-button></app-back-button>
+<div class="header">
+    <div class="instituicao-info">
+        <div class="name-area">
+            <div class="left-area">
+                <span class="name">{{ universityName }}</span>
+                <div class="info">
+                    <span>Oferecida por <strong>Catoca</strong></span>
+                    <span>•</span>
+                    <span>15 vagas</span>
+                    <span>•</span>
+                    <span><span class="status">Activa</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-info">
+            <div class="phone">
+                <div class="icon">
+                    <img src="icons/phone.svg" alt="Phone Icon" />
+                </div>
+                <span>13/01/2025 à 25/05/2025</span>
+            </div>
+            <div class="email">
+                <div class="icon">
+                    <img src="icons/award-01.svg" alt="Email Icon" />
+                </div>
+                <span>Bolsa de Mérito</span>
+            </div>
+            <div class="email">
+                <div class="icon">
+                    <img src="icons/graduation-grey.svg" alt="Email Icon" />
+                </div>
+                <span>Mestrado</span>
+            </div>
+            <div class="email">
+                <div class="icon">
+                    <img src="icons/coins-hand.svg" alt="Email Icon" />
+                </div>
+                <span>Integral</span>
+            </div>
+            <div class="country">
+                <div class="icon">
+                    <img src="icons/globe.svg" alt="Country Icon" />
+                </div>
+                <span>Interna</span>
+            </div>
+
+        </div>
+    </div>
+    <div class="indicator">
+        <div class="avatars">
+            <img *ngFor="let person of participants" [src]="person.photo" alt="participant" />
+        </div>
+        <div class="text">
+            <span>08 Bolseiros</span>
+        </div>
+    </div>
+</div>
+<div class="actions">
+    <p-button severity="secondary">
+        <img src="icons/edit-05.svg" alt="Email Icon" />
+        Editar instituição
+    </p-button>
+    <p-button severity="primary" (onClick)="showDialog()">
+        Vincular bolseiro
+        <img src="icons/user-right-01.svg" alt="Email Icon" />
+    </p-button>
+    <p-button label="Mais detalhes da instituição" icon="pi pi-info-circle" iconPos="right" [text]="true"
+        severity="secondary" />
+</div>
+<p-tabs value="0">
+    <p-tablist>
+        <p-tab value="0">
+            <div class="tab-icon">
+                <img src="icons/users-check.svg" alt="Email Icon" />
+            </div>
+            Bolseiros vinculados
+        </p-tab>
+        <p-tab value="1">
+            <div class="tab-icon">
+                <img src="icons/building-05.svg" alt="Email Icon" />
+            </div>
+            Instituições
+        </p-tab>
+    </p-tablist>
+    <p-tabpanels>
+        <p-tabpanel value="0">
+
+            <!-- <app-lista-cursos></app-lista-cursos> -->
+
+            <app-search-bar [showPrimaryBtn]="false"></app-search-bar>
+
+            <div class="list">
+                @for (item of bolseiros; track $index) {
+                <app-card-person [name]="item.name" [avatar]="item.avatar" [age]="item.age" [country]="item.country"
+                    [duration]="item.duration" [estado]="item.estado"></app-card-person>
+                }
+            </div>
+
+        </p-tabpanel>
+        <p-tabpanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+            </p>
+        </p-tabpanel>
+    </p-tabpanels>
+</p-tabs>

@@ -1,0 +1,69 @@
+<div class="card">
+    <!-- Header -->
+    <div class="header">
+        <div class="icon">
+            <img src="icons/certificate-blue.svg" alt="icon" />
+        </div>
+        <div class="title">
+            <h2>Bolsa de Mérito Acadêmico para Mulheres</h2>
+            <div class="info">
+                <span>Oferecida por <strong>{{ sponsor }}</strong></span>
+                <span>•</span>
+                <span>{{ vacancies }} vagas</span>
+                <span>•</span>
+                <span><span class="status">{{ status }}</span></span>
+            </div>
+        </div>
+        <div class="indicators">
+            <div class="avatars">
+                <img *ngFor="let person of participants" [src]="person.photo" alt="participant" />
+                <div class="counter">
+                    <span>+{{ extraParticipants }}</span>
+                </div>
+                <span class="counter-desc">Bolseiros</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Description -->
+    <p class="description">
+        {{ description }}
+    </p>
+
+    <!-- Date and Tags -->
+    <div class="contact-info">
+        <div class="phone">
+            <div class="icon">
+                <img src="icons/phone.svg" alt="Phone Icon" />
+            </div>
+            <span>{{ startDate }} à {{endDate}}</span>
+        </div>
+        <div class="email">
+            <div class="icon">
+                <img src="icons/award-01.svg" alt="Email Icon" />
+            </div>
+            <span>Bolsa de Mérito</span>
+        </div>
+        <div class="email">
+            <div class="icon">
+                <img src="icons/graduation-grey.svg" alt="Email Icon" />
+            </div>
+            <span>Mestrado</span>
+        </div>
+        <div class="email">
+            <div class="icon">
+                <img src="icons/coins-hand.svg" alt="Email Icon" />
+            </div>
+            <span>Integral</span>
+        </div>
+        <div class="country">
+            <div class="icon">
+                <img src="icons/globe.svg" alt="Country Icon" />
+            </div>
+            <span>{{ country() }}</span>
+        </div>
+
+    </div>
+
+</div>
+

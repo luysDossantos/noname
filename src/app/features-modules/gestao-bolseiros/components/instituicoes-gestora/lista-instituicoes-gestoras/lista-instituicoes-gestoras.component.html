@@ -1,0 +1,15 @@
+<div class="page-header">
+    <div class="left-area">
+        <span class="title">Empresas gestoras</span>
+        <span class="sub-title">Adicione, visulize e edite todas as empresas gestoras no sistema</span>
+    </div>
+</div>
+<app-search-bar primaryBtnLabel="Nova Empresa" (onPrimaryBtnClick)="showDialog()"></app-search-bar>
+
+<div class="list grid">
+    @for (item of bolseiros; track $index) {
+    <app-card-empresa-02 class="col-6" [routerLink]="['detalhe-empresa']" [name]="item.name" [avatar]="item.avatar"
+        [age]="item.age" [country]="item.country" [duration]="item.duration"
+        [estado]="item.estado"></app-card-empresa-02>
+    }
+</div>

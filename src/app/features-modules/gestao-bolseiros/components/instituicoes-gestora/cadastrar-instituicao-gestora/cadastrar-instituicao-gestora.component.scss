@@ -1,0 +1,106 @@
+.step-indicator {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    .number {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 15px;
+        color: var(--gray-2, #94949B);
+        font-style: normal;
+        font-weight: 600;
+        line-height: 150%;
+        border: #EBEBEF solid 1px;
+    }
+
+    .label {
+        align-self: center;
+        margin-top: 10px;
+        font-size: 14px;
+        font-style: normal;
+        color: var(--gray-2, #94949B);
+        font-weight: 500;
+        line-height: 150%;
+    }
+
+    &.active {
+        .number {
+            background-color: var(--blue-light, #DAE0FF);
+            color: var(--blue-dark, #4864E1);
+        }
+
+        .label {
+            color: var(--black, #333335);
+            font-weight: 600;
+
+        }
+    }
+}
+
+.file-upload {
+    margin: 26px 0;
+    .circular-upload {
+        width: 100px;
+        height: 100px;
+        background-color: #EBEBEF;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+
+        span {
+            color: var(--gray-2, #94949B);
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 8px;
+            position: absolute;
+            right: 0;
+            bottom: 8px;
+        }
+
+        &.preview {
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+
+}
+
+::ng-deep {
+    .p-fileupload-advanced {
+        border: none !important;
+        border-radius: none !important;
+        background: none !important;
+        color: none !important;
+    }
+
+    .p-fileupload-header {
+        display: none !important;
+    }
+
+    p-progressbar {
+        display: none !important;
+
+    }
+}

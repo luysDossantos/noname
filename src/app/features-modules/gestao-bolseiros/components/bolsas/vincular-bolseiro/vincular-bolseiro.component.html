@@ -1,0 +1,64 @@
+<div class="custom-modal-layout">
+    <div class="modal-header">
+        <div class="icon">
+            <img src="icons/plus-circle.svg" alt="Email Icon" />
+        </div>
+        <span class="title">Adicionar bolseiro</span>
+        <p-button icon="pi pi-times" class="close-btn" [rounded]="true" [text]="true" (onClick)="cancel()" />
+    </div>
+    <form [formGroup]="institutionForm" (ngSubmit)="save()">
+
+        <div class="p-fluid grid">
+            
+            <div class="field col-12">
+                <label for="type">Bolseiro</label>
+                <p-select id="type" formControlName="type" [options]="['Parcial', 'Integral']" placeholder="Selecionar o bolseiro"
+                    class="w-full"></p-select>
+            </div>
+
+            <div class="field col-6">
+                <label for="acronym">País</label>
+                <p-select id="province" class="w-full" [options]="['Angola', 'Brasil', 'Portugal']"
+                    placeholder="Selecione o país" formControlName="country" />
+            </div>
+
+            <div class="field col-6">
+                <label for="acronym">Instituição de ensino</label>
+                <p-select id="province" class="w-full" [options]="[]"
+                    placeholder="Selecione a instituição de ensino" formControlName="destination" />
+            </div>
+
+            <div class="field col-6">
+                <label for="academicLevel">Curso</label>
+                <p-select id="academicLevel" formControlName="academicLevel"
+                    [options]="[]" placeholder="Selecione o Curso"
+                    class="w-full"></p-select>
+            </div>
+
+            <div class="field col-6">
+                <label for="academicLevel">Atribuir empresa gestora ?</label>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center">
+                        <p-radiobutton [value]="true" formControlName="temGestor" inputId="temGestor1"/>
+                        <label for="temGestor1" class="ml-2">Sim</label>
+                    </div>
+                    <div class="flex items-center">
+                        <p-radiobutton [value]="false" formControlName="temGestor" inputId="temGestor2"/>
+                        <label for="temGestor2" class="ml-2">Não</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field col-12">
+                <label for="type">Empresa gestora</label>
+                <p-select id="type" formControlName="fundingEntity" [options]="[]" placeholder="Selecionar empresa gestora"
+                    class="w-full"></p-select>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button pButton type="button" label="Cancelar" class="p-button-outlined" (click)="cancel()"></button>
+            <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+        </div>
+    </form>
+</div>

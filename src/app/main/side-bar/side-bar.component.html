@@ -1,0 +1,76 @@
+<aside class="sidebar">
+    <!-- <div class="logo">
+    <h2>Bolsa de <span class="highlight">profissionais</span></h2>
+  </div> -->
+    <nav class="menu">
+        <ul>
+            <li routerLink="dashboard" routerLinkActive="active">
+                <img src="icons/home-04.svg" alt="home Icon" />
+                Dashboard
+            </li>
+            <!-- menu bolsa de profissionais -->
+            <li class="text-separator">
+                PROFISSIONAIS DO SECTOR
+            </li>
+            <li routerLink="profissionais" routerLinkActive="active">
+                <img src="icons/users-01.svg" alt="building Icon" />
+                Profissionais
+            </li>
+            <li routerLink="vagas" routerLinkActive="active">
+                <img src="icons/briefcase-02.svg" alt="building Icon" />
+                Vagas
+            </li>
+            <li routerLink="candidaturas" routerLinkActive="active">
+                <img src="icons/image-user-down.svg" alt="building Icon" />
+                Candidaturas
+            </li>
+            <li routerLink="profissionais-sector/empresa" routerLinkActive="active">
+                <img src="icons/building-03.svg" alt="building Icon" />
+                Empresas
+            </li>
+            <li routerLink="registro-atividades" routerLinkActive="active">
+                <img src="icons/dataflow-03.svg" alt="building Icon" />
+                Registro de atividades
+            </li>
+            <!-- menu módulo bolseiros -->
+            <li class="text-separator">
+                GESTÃO DE BOLSAS
+            </li>
+            <li routerLink="gestao-bolseiros/instituicao-ensino" routerLinkActive="active">
+                <img src="icons/building-05.svg" alt="building Icon" />
+                Instituições de ensino
+            </li>
+            <li routerLink="gestao-bolseiros/bolseiros" routerLinkActive="active">
+                <img src="icons/graduation-blue.svg" alt="graduation Icon" />
+                Bolseiros
+            </li>
+            <li routerLink="gestao-bolseiros/bolsas" routerLinkActive="active">
+                <img src="icons/certificate-01.svg" alt="certificate Icon" />
+                Bolsas
+            </li>
+            <li routerLink="gestao-bolseiros/empresa-gestora" routerLinkActive="active">
+                <img src="icons/building-03.svg" alt="building Icon" />
+                Empresas gestoras
+            </li>
+            <!-- menu concursos -->
+            <li class="text-separator">
+                GESTÃO DE CONCURSOS
+            </li>
+            <li [routerLink]="['gestao-concurso/concurso']" routerLinkActive="active">
+                <img src="icons/building-05.svg" alt="building Icon" />
+                Concursos
+            </li>
+            <li [routerLink]="['gestao-concurso/candidaturas']" routerLinkActive="active">
+                <img src="icons/building-05.svg" alt="building Icon" />
+                Candidaturas
+            </li>
+            <div class="separator"></div>
+
+            <li routerLink="configuracoes" routerLinkActive="active">
+                <img src="icons/settings-01.svg" alt="settings Icon" />
+                Configurações
+            </li>
+
+        </ul>
+    </nav>
+</aside>
