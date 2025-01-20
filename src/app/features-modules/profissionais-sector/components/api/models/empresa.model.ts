@@ -1,12 +1,8 @@
-export interface Bolsa {
+export interface Empresa {
     id: string;
     title: string;
-    financialCoverage: string;
     type: string;
-    coveragePercentage: number | string;
     destination: string;
-    academicLevel: string;
-    vacancies: number | string;
     estado: string;
     fundingEntity: string;
     startDate: string; // ISO 8601 date string
@@ -21,4 +17,3 @@ export interface Bolsa {
     tipoEmpresa: any;
     name: any;
   }
-  

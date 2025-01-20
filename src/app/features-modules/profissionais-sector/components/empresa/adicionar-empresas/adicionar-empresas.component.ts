@@ -1,3 +1,4 @@
+import { Empresa } from './../../api/models/empresa.model';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
@@ -11,24 +12,29 @@ import { Select } from 'primeng/select';
 import { StepperModule } from 'primeng/stepper';
 import { TextareaModule } from 'primeng/textarea';
 import { DatePicker } from 'primeng/datepicker';
+import { ApiService } from '@core/providers/http';
+//import { EmpresaService } from '../../api/services/empresa.service';
 
 @Component({
   selector: 'app-adicionar-empresas',
-  imports: [ReactiveFormsModule, DialogModule, Select, InputTextModule, TextareaModule, ButtonModule, StepperModule, CommonModule, FileUpload, HttpClientModule, DatePicker],
-  providers: [DialogService],
+  imports: [ReactiveFormsModule, DialogModule, Select, InputTextModule, TextareaModule, ButtonModule, StepperModule,
+    CommonModule, FileUpload, HttpClientModule],
+  providers: [DialogService, ApiService, FormBuilder],
   templateUrl: './adicionar-empresas.component.html',
   styleUrl: './adicionar-empresas.component.scss',
   standalone: true
 })
 export class AdicionarEmpresasComponent {
 
+  empresa: Empresa[] = [];
   private fb = inject(FormBuilder);
     ref = inject(DynamicDialogRef);
-  
+   // empresaService = inject(EmpresaService)
+
     file: any;
     imagePreview: string | ArrayBuffer | null = null; // To store image as Base64 URL
-  
-    institutionForm = this.fb.group({
+
+    empresaForm = this.fb.group({
       name: ['', Validators.required],
       acronym: ['', Validators.required],
       country: ['', Validators.required],
@@ -38,24 +44,24 @@ export class AdicionarEmpresasComponent {
       phone: [''],
       email: ['', [Validators.required, Validators.email]],
     });
-  
+
     activeStep: number = 1;
-  
+
     save() {
-      if (this.institutionForm.valid) {
-        console.log(this.institutionForm.value); // Send data to the backend or handle logic
-        this.ref.close(this.institutionForm.value); // Close the dialog and pass data back
+      if (this.empresaForm.valid) {
+        console.log(this.empresaForm.value); // Send data to the backend or handle logic
+        this.ref.close(this.empresaForm.value); // Close the dialog and pass data back
       }
     }
-  
+
     cancel() {
       this.ref.close(); // Close the dialog without saving
     }
-  
+
     choose(event: any, callback: () => void) {
       callback();
     }
-  
+
     onSelectedFiles(event: { currentFiles: any; }) {
       this.file = event.currentFiles[0];
       console.log(this.file)
@@ -63,7 +69,7 @@ export class AdicionarEmpresasComponent {
         reader.onload = () => {
           this.imagePreview = reader.result; // Store Base64 URL
         };
-        reader.readAsDataURL(this.file); 
+        reader.readAsDataURL(this.file);
       /* this.files.forEach((file: { size: any; }) => {
         this.totalSize += parseInt(this.formatSize(file.size));
       });

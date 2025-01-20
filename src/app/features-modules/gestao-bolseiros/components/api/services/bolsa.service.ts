@@ -18,12 +18,11 @@ export class BolsaService {
   list(params?: any): Observable<Bolsa[]> {
     return this.apiService.get<{ data: Bolsa[] }>(`${this.path}/getAllBolsa`, params ? new HttpParams({
       fromObject: params
-    }) : this.params).pipe(
+    }): this.params).pipe(
       debounceTime(500),
       map(response => response.data)
     );
   }
-
   // Create new bolsa
   public store(form: FormGroup): Observable<Bolsa> {
     const bolsa = form.value as Bolsa;

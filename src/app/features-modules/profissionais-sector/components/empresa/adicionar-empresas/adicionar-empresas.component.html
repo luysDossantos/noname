@@ -6,7 +6,7 @@
         <span class="title">Adicionar nova empresa</span>
         <p-button icon="pi pi-times" class="close-btn" [rounded]="true" [text]="true" (onClick)="cancel()" />
     </div>
-    <form [formGroup]="institutionForm" (ngSubmit)="save()">
+    <form [formGroup]="empresaForm" (ngSubmit)="save()">
 
         <div class="">
             <p-stepper [(value)]="activeStep" class="basis-[50rem]">
